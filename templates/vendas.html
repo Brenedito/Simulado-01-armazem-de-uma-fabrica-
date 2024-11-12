@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center bg-gray-100 p-4">
+    <div class="text-center text-2xl font-bold mb-8">
+        Produto: {{produto["nome"]}} <br>
+        Quantidade: {{produto["quantidade"]}}
+    </div>
+    <form class="bg-black text-white p-8 rounded-lg shadow-md w-full max-w-sm" method="post" action="/vendendo/{{produto['id']}}">
+        <div class="flex flex-col gap-4">
+            <label for="quant" class="font-semibold">Quantidade:</label>
+            <input type="number" name="quant" id="quant" required class="p-2 rounded bg-gray-700 text-white" />
+            
+            <label for="destino" class="font-semibold">Destino:</label>
+            <input type="text" name="destino" id="destino" required class="p-2 rounded bg-gray-700 text-white" />
+            
+            <button type="submit" class="bg-blue-500 p-2 rounded hover:bg-blue-600 transition">Vender</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Fabrica</title>
+</head>
+<body class="flex flex-col h-screen w-screen justify-center items-center bg-slate-500 gap-y-2 p-4 sm:p-8">
+    
+    <div class="text-white font-bold text-3xl sm:text-5xl">
+        <h1>Olá {{user["funcao"]}} {{user["nome"]}}</h1>
+    </div>
+   
+    <div class="flex flex-wrap gap-x-3 p-1 justify-center">
+        {% if user['funcao'] == 'Gerente' %}
+            <a href="/estoque">
+                <button class="bg-blue-500 p-2 font-bold text-white rounded w-full sm:w-40">Estoque</button>
+            </a>
+            <a href="/relatoriovendas">
+                <button class="bg-green-500 p-2 font-bold text-white rounded w-full sm:w-40">Relatório Vendas</button>
+            </a>
+        {% endif %}
+        <a class="bg-red-700 p-2 font-bold text-white rounded w-full sm:w-40 text-center" href="http://127.0.0.1:5000/logout">
+            <button>Sair</button>
+        </a>
+    </div>
+
+    <div class="flex flex-wrap justify-center p-2 bg-white gap-2 items-center w-full h-full">
+        <div class="flex justify-center items-center bg-zinc-500 h-16 w-1/2 sm:w-1/6">
+            <a class="text-white font-bold" href="/area/1">Área 1</a>
+        </div>
+        <div class="flex justify-center items-center bg-zinc-500 h-16 w-1/2 sm:w-1/6">
+            <a class="text-white font-bold" href="/area/2">Área 2</a>
+        </div>
+        <div class="flex justify-center items-center bg-zinc-500 h-16 w-1/2 sm:w-1/6">
+            <a class="text-white font-bold" href="/area/3">Área 3</a>
+        </div>
+        <div class="flex justify-center items-center bg-zinc-500 h-16 w-1/2 sm:w-1/6">
+            <a class="text-white font-bold" href="/area/4">Área 4</a>
+        </div>
+        <div class="flex justify-center items-center bg-zinc-500 h-16 w-1/2 sm:w-1/6">
+            <a class="text-white font-bold" href="/area/5">Área 5</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-400">
+
+    <div id="superiorArea" class="my-5 flex justify-center items-center flex-col">
+        <a class="mt-10 flex justify-around w-full md:w-1/2 bg-red-500 text-white p-2 rounded" href="/fabrica">
+            <button id="btnVoltar">Voltar</button>
+        </a>
+    </div>
+
+    <div id="listaProdutos" class="w-full mx-auto px-4 py-5 bg-white max-w-6xl">
+        <div class="overflow-x-auto">
+            <table class="min-w-full table-auto border-collapse border border-slate-500">
+                <thead>
+                    <tr>
+                        <th class="border border-slate-600 p-2 bg-gray-200">Id</th>
+                        <th class="border border-slate-600 p-2 bg-gray-200">Nome</th>
+                        <th class="border border-slate-600 p-2 bg-gray-200">Quantidade</th>
+                        <th class="border border-slate-600 p-2 bg-gray-200">Lote</th>
+                        <th class="border border-slate-600 p-2 bg-gray-200">Data</th>
+                        <th class="border border-slate-600 p-2 bg-gray-200">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, produto in produto.items() %}
+                    <tr>
+                        <td class="border border-slate-600 p-2">{{ produto['id'] if 'id' in produto else 'não disponível' }}</td>
+                        <td class="border border-slate-600 p-2">{{ produto['nome'] if 'nome' in produto else 'não disponível' }}</td>
+                        <td class="border border-slate-600 p-2">{{ produto['quantidade'] if 'quantidade' in produto else 'não disponível' }}</td>
+                        <td class="border border-slate-600 p-2">{{ produto['lote'] if 'lote' in produto else 'não disponível' }}</td>
+                        <td class="border border-slate-600 p-2">{{ produto['data'] if 'data' in produto else 'não disponível' }}</td>
+                        <td class="border border-slate-600 p-2">
+                            <a href="/venda/{{ produto['id'] }}" class="bg-green-500 text-white py-1 px-2 rounded-md">Vender</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

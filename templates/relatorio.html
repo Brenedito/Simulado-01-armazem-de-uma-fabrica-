@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Vendas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200 p-8">
+
+    <h1 class="text-2xl font-bold mb-5 text-center">Relatório de Vendas</h1>
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-300">
+            <thead>
+                <tr class="bg-green-500 text-white">
+                    <th class="py-2 px-4 border">Id</th>
+                    <th class="py-2 px-4 border">Nome</th>
+                    <th class="py-2 px-4 border">Quantidade</th>
+                    <th class="py-2 px-4 border">Data/Hora</th>
+                    <th class="py-2 px-4 border">Destino</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, vendas in vendas.items() %}
+                <tr class="hover:bg-gray-100">
+                    <td class="py-2 px-4 border">{{ vendas["id"] if 'id' in vendas else 'não disponível' }}</td>
+                    <td class="py-2 px-4 border">{{ vendas["nomeproduto"] if 'nomeproduto' in vendas else 'não disponível' }}</td>
+                    <td class="py-2 px-4 border">{{ vendas["quantidade"] if 'quantidade' in vendas else 'não disponível' }}</td>
+                    <td class="py-2 px-4 border">{{ vendas["data"] if 'data' in vendas else 'não disponível' }}</td>
+                    <td class="py-2 px-4 border">{{ vendas["destino"] if 'destino' in vendas else 'não disponível' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="flex justify-center mt-5">
+        <a href="/fabrica">
+            <button class="bg-red-700 text-white py-2 px-4 rounded">Voltar</button>
+        </a>
+    </div>
+
+</body>
+</html>
